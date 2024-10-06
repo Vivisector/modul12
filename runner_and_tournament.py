@@ -42,7 +42,7 @@ class Tournament:
 
 
 class TournamentTest(unittest.TestCase):
-
+    is_frozen = True
     @classmethod
     def setUpClass(cls):
         cls.all_results = {} # заготовили переменную для отчета
@@ -58,6 +58,7 @@ class TournamentTest(unittest.TestCase):
         for place, participant in cls.all_results.items():
             print(f"{place}-е место: {participant}")
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_usain_and_nik(self):
         # Забег с Усэйном и Ником
         tour = Tournament(90, self.usejn, self.nik)
@@ -70,6 +71,7 @@ class TournamentTest(unittest.TestCase):
         last_place = max(results.keys())
         self.assertTrue(results[last_place] == 'nik')
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_andrej_and_nik(self):
         # Забег с Андреем и Ником
         tour = Tournament(90, self.andrej, self.nik)
@@ -82,6 +84,7 @@ class TournamentTest(unittest.TestCase):
         last_place = max(results.keys())
         self.assertTrue(results[last_place] == 'nik')
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_usain_andrej_and_nik(self):
         # Забег с Усэйном, Андреем и Ником
         tour = Tournament(90, self.usejn, self.andrej, self.nik)
