@@ -1,5 +1,3 @@
-import unittest
-
 class Runner:
     def __init__(self, name, speed=5):
         self.name = name
@@ -39,64 +37,3 @@ class Tournament:
                     self.participants.remove(participant)
 
         return finishers
-
-
-class TournamentTest(unittest.TestCase):
-    is_frozen = True
-    @classmethod
-    def setUpClass(cls):
-        cls.all_results = {} # заготовили переменную для отчета
-
-    def setUp(self):
-        self.usejn = Runner('usejn', 10)
-        self.andrej = Runner('andrej', 9)
-        self.nik = Runner('nik', 3)
-
-    @classmethod
-    def tearDownClass(cls):
-        print("\nAll Results:")
-        for place, participant in cls.all_results.items():
-            print(f"{place}-е место: {participant}")
-
-    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
-    def test_usain_and_nik(self):
-        # Забег с Усэйном и Ником
-        tour = Tournament(90, self.usejn, self.nik)
-        results = tour.start()
-
-        # Сохраняем результаты для финального вывода
-        self.__class__.all_results.update(results)
-
-        # Проверяем, что последним финишировал Ник
-        last_place = max(results.keys())
-        self.assertTrue(results[last_place] == 'nik')
-
-    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
-    def test_andrej_and_nik(self):
-        # Забег с Андреем и Ником
-        tour = Tournament(90, self.andrej, self.nik)
-        results = tour.start()
-
-        # Сохраняем результаты для финального вывода
-        self.__class__.all_results.update(results)
-
-        # Проверяем, что последним финишировал Ник
-        last_place = max(results.keys())
-        self.assertTrue(results[last_place] == 'nik')
-
-    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
-    def test_usain_andrej_and_nik(self):
-        # Забег с Усэйном, Андреем и Ником
-        tour = Tournament(90, self.usejn, self.andrej, self.nik)
-        results = tour.start()
-
-        # Сохраняем результаты для финального вывода
-        self.__class__.all_results.update(results)
-
-        # Проверяем, что последним финишировал Ник
-        last_place = max(results.keys())
-        self.assertTrue(results[last_place] == 'nik')
-
-
-if __name__ == '__main__':
-    unittest.main()
