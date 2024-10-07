@@ -20,7 +20,7 @@ class RunnerTest(unittest.TestCase):
             obj.walk()
             logging.info('"test_walk" выполнен успешно')
         except ValueError as e:
-            # logging.warning(f'"test_walk": Неверная скорость для Runner: {e}') # без логирования сообщения об ошибке
+            # logging.warning(f'"test_walk": Неверная скорость у Runner: {e}') # без логирования сообщения об ошибке
             logging.warning(f'"test_walk": Неверная скорость для Runner: {e}', exc_info=True) # c сообщением
 
     def test_run(self):
