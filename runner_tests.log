@@ -1,4 +1,4 @@
-2024-10-07 15:49:42,697 | WARNING | "test_run": Неверный тип данных для объекта Runner: Имя может быть только строкой, передано bool
+2024-10-07 15:57:14,086 | WARNING | "test_run": Неверный тип данных для объекта Runner: Имя может быть только строкой, передано bool
 Traceback (most recent call last):
   File "D:\Python\012 цикл_разработки\pythonProject1\tests_12_4.py", line 29, in test_run
     obj = Runner(False, 10)
@@ -6,7 +6,7 @@ Traceback (most recent call last):
   File "D:\Python\012 цикл_разработки\pythonProject1\runner.py", line 6, in __init__
     raise TypeError(f'Имя может быть только строкой, передано {type(name).__name__}')
 TypeError: Имя может быть только строкой, передано bool
-2024-10-07 15:49:42,697 | WARNING | "test_walk": Неверная скорость для Runner: Скорость не может быть отрицательной, сейчас -10
+2024-10-07 15:57:14,086 | WARNING | "test_walk": Неверная скорость для Runner: Скорость не может быть отрицательной, сейчас -10
 Traceback (most recent call last):
   File "D:\Python\012 цикл_разработки\pythonProject1\tests_12_4.py", line 19, in test_walk
     obj = Runner('Usain', -10)

@@ -15,7 +15,7 @@ class RunnerTest(unittest.TestCase):
 
     def test_walk(self):
         try:
-            # Передаем отрицательное значение в speed, чтобы вызвать исключение
+            # Передаем в speed отрицательное значение, чтобы увидеть исключение
             obj = Runner('Usain', -10)
             obj.walk()
             logging.info('"test_walk" выполнен успешно')
@@ -25,7 +25,7 @@ class RunnerTest(unittest.TestCase):
 
     def test_run(self):
         try:
-            # Передаем некорректный тип для name, чтобы вызвать исключение
+            # Передаем некорректный тип для name, чтобы увидеть исключение
             obj = Runner(False, 10)
             obj.run()
             logging.info('"test_run" выполнен успешно')
